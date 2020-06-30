@@ -1,0 +1,14 @@
+0.083333333333333,name,6393,,0.5,,,0.5
+family_name,Language,ISO,Glottocode,endangerment_status,Coordinate,Value,desc_status
+Austronesian,Ajië,aji,ajie1238,safe,Latitude,-21.3029,grammar
+,Ajië,aji,ajie1238,safe,Longitude,165.468,grammar
+,Xârâcùù,ane,xara1244,safe,Latitude,-21.7034,grammar
+,Xârâcùù,ane,xara1244,safe,Longitude,165.996,grammar
+,Yuaga,nua,yuag1237,vulnerable,Latitude,-20.5664,specific_feature
+,Yuaga,nua,yuag1237,vulnerable,Longitude,164.51,specific_feature
+,Zire,sih,zire1240,extinct,Latitude,-21.6544,specific_feature
+,Zire,sih,zire1240,extinct,Longitude,165.482,specific_feature
+Indo-European,Tayo,cks,tayo1238,definitely endangered,Latitude,-22.2277,grammar
+,Tayo,cks,tayo1238,definitely endangered,Longitude,166.546,grammar
+Pidgin,New Caledonian Pidgin French,NA,newc1245,safe,Latitude,NA,minimal
+,New Caledonian Pidgin French,NA,newc1245,safe,Longitude,NA,minimal

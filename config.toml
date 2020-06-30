@@ -1,4 +1,4 @@
-baseURL = "https://example.com/"
+baseURL = "https://eodavis.netlify.com/"
 title = "Elizabeth Oneita Davis"
 author = ""
 copyright = "Copyright © 2020"
@@ -10,6 +10,9 @@ footnoteReturnLinkContents = "^"
 disqusShortname = "YOURSHORTNAME"
 googleAnalytics = "UA-FAKE"
 theme = "hugo-theme-tokiwa"
+
+[permalinks]
+    post = "/:slug/"
 
 [markup.goldmark.renderer]
 unsafe= true
@@ -33,8 +36,8 @@ bannerFont = "fonts/exampleFont"
     url = "/post/"
     
   [[menu.main]]
-    name = "Tags"
-    url = "/tags/"
+    name = "Categories"
+    url = "/categories/"
     weight = 2
 
   [[menu.main]]

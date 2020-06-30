@@ -1,0 +1,290 @@
+---
+title: "Graphing in R"
+subtitle: ""
+author: "Elizabeth Davis"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(ggplot2)
+library(ggthemes)
+library(socviz)
+```
+
+
+---
+class: center, middle
+
+# The best graphs are made with `ggplot2`
+
+--
+
+### Go ahead and install `ggplot2` and `ggthemes` using the `install.packages()` command.
+
+--
+
+Don't forget to put them in parantheses! I.e. `install.packages("ggplot2")`
+
+---
+class: inverse, center, middle
+
+# We're going to be working with the `Orange` dataset
+
+--
+
+## Go ahead and *load* it into your environment- do you remember what command we use?
+
+--
+
+###That's right! `data(Orange)`
+
+--
+
+### And remember, you will also need to load the packages you'll be using, with the `library` command.
+
+---
+class: center, middle
+
+## Go through all of the usual things you would do when exploring a new dataset, i.e. `head`, `names`, `summary`, etc.
+
+---
+
+# Let's make a simple graph
+
+--
+
+###Type in the following:
+
+--
+
+```{r orange graph, eval= 'false', fig.show= 'hide', results= 'hide'}
+ggplot(Orange, aes(age, circumference)) +
+  geom_point(color="firebrick")
+
+```
+
+---
+
+```{r orange graph-out, ref.label="orange graph", echo=FALSE}
+```
+
+---
+
+# Ok, that's pretty hard to see. Let's make the font bigger.
+
+--
+
+## To do this we add another *layer* to our plot, called the `theme`. The `theme` is one of the key things we can manipulate to make our plots visually appealling.
+
+--
+
+```{r theme, eval= 'false', fig.show= 'hide', results= 'hide'}
+ggplot(Orange, aes(age, circumference)) +
+  theme(text = element_text(size=20)) +
+  geom_point(color="firebrick")
+```
+
+---
+
+```{r theme-out, ref.label="theme", echo=FALSE}
+```
+
+---
+
+## That's a bit better, although this graph still isn't great. But for now, let's focus on adding basic essentials to our graph.
+
+### Let's add a title:
+
+--
+
+
+```{r title, eval= 'false', fig.show= 'hide', results= 'hide'}
+ggplot(Orange, aes(age, circumference)) +
+  theme(text = element_text(size=20)) +
+  geom_point(color="firebrick") +
+  ggtitle("’Growth of Orange Trees")
+```
+
+---
+
+
+```{r title-out, ref.label="title", echo=FALSE}
+```
+
+---
+
+## Add axis labels AND a title on to your graph
+
+--
+
+
+```{r labels, eval= 'false', fig.show= 'hide', results= 'hide'}
+ggplot(Orange, aes(age, circumference)) +
+  theme(text = element_text(size=20)) +
+  geom_point(color="firebrick") +
+  labs(x="Age", y="Growth (Years)", title="Growth of Orange Trees")
+```
+
+---
+
+
+```{r labels-out, ref.label="labels", echo=FALSE}
+```
+
+---
+
+## Now, let's color code our data by one of our variables, *type of tree*. We can do it like so:
+
+--
+
+```{r color code, eval= 'false', fig.show= 'hide', results= 'hide'}
+ggplot(Orange, aes(age, circumference)) +
+  theme(text = element_text(size=20)) +
+  geom_point(aes(color=factor(Tree))) +
+  labs(x="Age", y="Growth (Years)", title="Growth of Orange Trees")
+```
+
+---
+
+```{r color code-out, ref.label="color code", echo=FALSE}
+```
+
+---
+class: center, middle
+
+## As you can see, this type of graph isn't very useful for us. It doesn't tell a very good or visually appealing story.
+
+---
+
+## Let's try a different type of graph- the boxplot.
+
+### Type in the following:
+
+--
+
+```{r box, eval= 'false', fig.show= 'hide', results= 'hide'}
+ggplot(Orange, aes(x=Tree, y=circumference))+geom_boxplot(fill="chartreuse4")+coord_flip()
+```
+
+---
+
+```{r box-out, ref.label="box", echo=FALSE}
+```
+
+---
+
+## Now, let's color our data by type of tree.
+
+### Run the following code:
+
+--
+
+```{r viridis, eval= 'false', fig.show= 'hide', results= 'hide'}
+ggplot(Orange, aes(x=Tree, y=circumference))+geom_boxplot(aes( fill=Tree))+coord_flip()
+```
+
+---
+
+```{r viridis-out, ref.label="viridis", echo=FALSE}
+```
+
+---
+
+##Cool! But as you'll have noticed, the x-axis (which we have flipped) is out of order, going from 3, to 1, to 5, and so on. Let's adjust this, while also making this plot look as pretty as we can.
+
+---
+
+```{r viridis pretty, eval= 'false', fig.show= 'hide', results= 'hide'}
+Orange$Tree <- factor(Orange$Tree, levels = c(1, 2, 3, 4, 5))
+ggplot(Orange, aes(x=Tree, y=circumference))+
+  geom_boxplot(aes(fill=Tree))+
+  theme_bw()+
+  theme(text = element_text(size=20))+
+  scale_x_discrete(limits=c(1,2,3,4,5))+
+  labs(x="Tree", y="Circumference (cm)", title="Orange Tree Circumference")+
+  coord_flip()
+```
+
+---
+
+```{r viridis pretty-out, ref.label="viridis pretty", echo=FALSE}
+```
+
+---
+class: center, middle
+
+### There's probably more we could do to make it pretty, but it looks pretty good for now!
+
+---
+class: center, middle
+
+# Practice challenges for you to work through!
+
+--
+
+### Task 1: I’d like you to visualize some data for me. Create a *scatterplot* using `ggplot2`, and the `iris` dataset. Try to visualize the data in a way that tells a story and looks aesthetically appealing. It’s ok to Google how to do it!
+
+--
+
+### Task 2: Install the `socviz` package and have a look at the `oecd_sum` dataset. Think through how you could make a barchart using this data.
+
+---
+
+## One way to solve *Task 1*
+
+--
+
+```{r task one, eval= 'false', fig.show= 'hide', results= 'hide'}
+ggplot(iris, aes(Sepal.Length, Sepal.Width)) +
+  geom_point(aes(color = Species)) +
+  theme_bw() +
+  theme(text = element_text(size=20)) +
+  labs(x="Sepal Length", y="Speal Width", title="Sepal Length by Width\nDetermined by Iris Species") +
+  geom_smooth(aes(color = Species, fill = Species), method = "lm") + 
+  scale_color_viridis_d() +
+  scale_fill_viridis_d() 
+```
+
+---
+
+```{r task one-out, ref.label="task one", echo=FALSE}
+```
+
+---
+
+## One way to solve *Task 2*
+
+--
+
+```{r task two, eval= 'false', fig.show= 'hide', results= 'hide'}
+data(oecd_sum)
+ggplot(data = oecd_sum,
+            mapping = aes(x = year, y = diff, fill = hi_lo)) + 
+  geom_col() + guides(fill = FALSE) +
+  theme_bw() +
+  theme(text = element_text(size=20)) +
+  labs(x = NULL, y = "Difference in Years",
+       title = "The US Life Expectancy Gap",
+       subtitle = "Difference between US and OECD
+                   average life expectancies, 1960-2015")
+```
+
+---
+
+```{r task two-out, ref.label="task two", echo=FALSE}
+```
+
+---
+class: center, middle
+
+# Keep practicing! Data visualization and R are all about practice :)
+
+
