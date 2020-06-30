@@ -1,0 +1,30 @@
+---
+title: "Exploratory Data Analysis in R"
+subtitle: "Projects On Your Own!"
+author: "Elizabeth Davis"
+institute: "San Diego Zoo Global"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: [default, rladies, rladies-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+## You should all now be ready to do some exploratory analysis on your own. Go to the following web page:
+
+https://www.rdocumentation.org/packages/datasets/versions/3.6.1
+
+--
+
+## I want you to choose one of these datasets to perform data analysis on. It can be anything you want, just show the process of how you did it.
+
+---
+
+class: center, inverse, middle
+
+## If you need help or inspiration, look over the "Helpful R Sites" document.
+
