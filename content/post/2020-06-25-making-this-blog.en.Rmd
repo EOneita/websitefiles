@@ -3,7 +3,7 @@ title: Making this Blog
 author: E.O. Davis
 date: '2020-06-25'
 slug: making-this-blog
-draft: "true"
+draft: true
 categories:
   - hugo
   - blogdown
