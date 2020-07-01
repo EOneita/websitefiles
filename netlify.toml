@@ -1,14 +1,16 @@
-[build] 
+[build]
+  command = "hugo --gc --minify -b $eodavis2.netlify.app"
   publish = "public"
-  command = "hugo"
+
+[build.environment]
+  HUGO_VERSION = "0.69.0"
+  HUGO_ENABLEGITINFO = "true"
 
 [context.production.environment]
-  HUGO_VERSION = "0.73.0" # if older, use format: 0.53 (no trailing zero)
   HUGO_ENV = "production"
-  HUGO_ENABLEGITINFO = "true"
-  
-[context.branch-deploy.environment]
-  HUGO_VERSION = "0.73.0" # if older, use format: 0.53 (no trailing zero)
 
-[context.deploy-preview.environment]
-  HUGO_VERSION = "0.73.0"
+[context.deploy-preview]
+  command = "hugo --gc --minify --buildFuture -b $eodavis2.netlify.app"
+
+[context.branch-deploy]
+  command = "hugo --gc --minify -b $eodavis2.netlify.app"
