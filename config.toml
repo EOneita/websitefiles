@@ -7,7 +7,7 @@ DefaultContentLanguage = "en"
 hasCJKLanguage=true
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
-disqusShortname = "YOURSHORTNAME"
+disqusShortname = "eodavis"
 googleAnalytics = "UA-FAKE"
 theme = "hugo-theme-tokiwa"
 
