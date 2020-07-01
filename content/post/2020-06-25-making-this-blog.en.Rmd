@@ -3,6 +3,7 @@ title: Making this Blog
 author: E.O. Davis
 date: '2020-06-25'
 slug: making-this-blog
+draft: "true"
 categories:
   - hugo
   - blogdown
@@ -11,7 +12,6 @@ tags: []
 description: 'The painful road towards enlightenment.'
 output:
   html_document:
-    draft: "true"
     css: "custom.scss"
 ---
 
